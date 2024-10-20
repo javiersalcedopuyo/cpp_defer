@@ -20,4 +20,4 @@ namespace jsp
 #define JSP_DO_CONCATENATE( l, r )      JSP_DO_CONCATENATE_2( l, r )
 #define JSP_DO_CONCATENATE_2( l, r )    l##r
 
-#define JSP_DEFER(f) const auto JSP_CONCATENATE(_deferred, __COUNTER__) = jsp::Deferrable( [](){ f; } );
+#define JSP_DEFER(f) const auto JSP_CONCATENATE(_deferred, __COUNTER__) = jsp::Deferrable( [&](){ f; } );
