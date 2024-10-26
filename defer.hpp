@@ -1,17 +1,16 @@
 #pragma once
 
-#include <functional>
-
 namespace jsp
 {
+    template<typename Lambda>
     class Deferrable
     {
     public:
         Deferrable() = delete;
-        Deferrable( std::function<void()> _f ): f( _f ) {}
+        Deferrable( Lambda  _f ): f( _f ) {}
         ~Deferrable() { f(); }
     private:
-        const std::function<void()> f;
+        const Lambda f;
     };
 }
 
